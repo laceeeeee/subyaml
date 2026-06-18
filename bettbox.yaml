@@ -1,3 +1,5 @@
+# --- 基础全局配置 ---
+
 allow-lan: true
 ipv6: false
 bind-address: '*'
@@ -39,10 +41,10 @@ dns:
     "*.linux.do": "https://xxx.ddd.oaifree.com/query-dns"
     "linux.do": "https://xxx.ddd.oaifree.com/query-dns"
 
-  # 2. 全局默认 DNS 走代理（通过 #策略组 强制走对应分组）
+  # 2. 全局默认 DNS 换成国外，并加上 #RULES 强制走代理（分流规则）
   nameserver:
-    - "https://dns.cloudflare.com/dns-query#🚀 节点选择"
-    - "https://dns.google/dns-query#🚀 节点选择"
+    - "https://dns.cloudflare.com/dns-query#RULES"
+    - "https://dns.google/dns-query#RULES"
 
   # 3. 用于解析节点域名的 DNS
   proxy-server-nameserver:
